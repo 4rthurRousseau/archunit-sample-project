@@ -1,0 +1,3 @@
+Method fr.arthurrousseau.archunit.products.service.impl.Products.deleteProduct() doesn't log anything
+Method fr.arthurrousseau.archunit.products.service.impl.Products.getAllProducts() doesn't log anything
+Method fr.arthurrousseau.archunit.products.service.impl.Products.getProductById() doesn't log anything

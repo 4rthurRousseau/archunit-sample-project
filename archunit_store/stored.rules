@@ -1,0 +1,3 @@
+#
+#Tue Jun 04 23:48:33 CEST 2024
+methods\ that\ are\ declared\ in\ classes\ that\ name\ ending\ with\ 'ServiceImpl'\ or\ annotated\ with\ @Service\ should\ call\ logger=2a2375fa-54ec-4fa7-b979-17478323ac4c

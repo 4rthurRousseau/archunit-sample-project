@@ -1,0 +1,27 @@
+@startuml
+set separator none
+package [...].controller {
+  class ProductController {
+  }
+}
+
+package [...].service {
+  interface ProductRepository {
+  }
+  interface ProductService {
+  }
+  class ProductServiceImpl implements ProductService {
+  }
+}
+
+package [...].repository {
+  class ProductRepositoryImpl implements ProductRepository {
+  }
+}
+
+ProductController --> ProductService
+ProductServiceImpl --> ProductRepository
+ProductServiceImpl -[#red]-> ProductRepositoryImpl : Interdiction de dépendre d'une implémentation.\nCelle-ci se trouve dans le package [...].repository.
+
+
+@enduml
