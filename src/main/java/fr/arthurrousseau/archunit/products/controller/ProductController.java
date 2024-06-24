@@ -1,9 +1,8 @@
-package fr.arthurrousseau.archunit.products;
+package fr.arthurrousseau.archunit.products.controller;
 
 import fr.arthurrousseau.archunit.products.controller.mapper.ProductDtoMapper;
 import fr.arthurrousseau.archunit.products.controller.model.ProductDto;
 import fr.arthurrousseau.archunit.products.service.ProductService;
-import fr.arthurrousseau.archunit.products.service.model.Product;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,18 +10,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RestController
 @RequestMapping("/products")
 @RequiredArgsConstructor
-public class ProductControler {
+public class ProductController {
 
     private final ProductService productService;
 
     @GetMapping
-    public ResponseEntity<List<Product>> findAll() {
-        var products = productService.getAllProducts();
+    public ResponseEntity<List<ProductDto>> findAll() {
+        var products = productService.getAllProducts().stream()
+                .map(ProductDtoMapper.INSTANCE::toDto).collect(Collectors.toList());
 
         return ResponseEntity.ok(products);
     }
@@ -37,7 +38,8 @@ public class ProductControler {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Product add(@RequestBody Product product) {
-        return productService.saveProduct(product);
+    public ProductDto add(@RequestBody ProductDto product) {
+        var input = ProductDtoMapper.INSTANCE.fromDto(product);
+        return ProductDtoMapper.INSTANCE.toDto(productService.saveProduct(input));
     }
 }

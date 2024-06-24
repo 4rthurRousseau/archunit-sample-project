@@ -13,16 +13,17 @@ import java.util.Optional;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-public class Products implements ProductService {
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
     public Product saveProduct(Product product) {
-        log.info("Demande d'enregistrement d'un produit " + product);
+        log.info("Demande d'enregistrement d'un produit {}", product);
         return productRepository.save(product);
     }
 
     public Optional<Product> getProductById(long id) {
+        log.info("Demande de récupération du produit {}", id);
         return productRepository.findById(id);
     }
 
