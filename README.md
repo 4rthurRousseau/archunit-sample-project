@@ -18,7 +18,7 @@ classes [`JavaClass`](https://www.javadoc.io/doc/com.tngtech.archunit/archunit/l
 et [`JavaMethod`](https://www.javadoc.io/doc/com.tngtech.archunit/archunit/latest/com/tngtech/archunit/core/domain/JavaMethod.html)
 représentent respectivement les classes et les méthodes de votre projet.
 
-Vous souhaitez en savoir plus ? N'hésitez pas à consulter [l'article dev.to](https://todo.tld) pour lequel ce projet a
+Vous souhaitez en savoir plus ? N'hésitez pas à consulter [l'article dev.to](https://dev.to/onepoint/archunit-comment-lutiliser-pour-controler-larchitecture-de-vos-projets-java-388k) pour lequel ce projet a
 été créé ! 😉
 
 # Informations relatives à ce projet
